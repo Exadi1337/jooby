@@ -23,9 +23,6 @@ services:
   app:
     build: .
     container_name: jooby_app
-    depends_on:
-      postgres:
-        condition: service_healthy  # Ждём, пока БД будет полностью готова
     environment:
       DB_HOST: postgres
       DB_PORT: 5432
@@ -34,7 +31,6 @@ services:
       DB_NAME: jooby_db
     ports:
       - "8080:8080"
-    command: ["go", "run", "main.go"]
 
 volumes:
   postgres_data:

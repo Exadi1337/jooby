@@ -12,7 +12,7 @@ var DB *pgx.Conn
 
 func ConnectDB() {
 	var err error
-	url := "postgresql://jooby_user:jooby_pass@localhost:5432/jooby_db?sslmode=disable"
+	url := "postgresql://jooby_user:jooby_pass@postgres:5432/jooby_db?sslmode=disable"
 
 	DB, err = pgx.Connect(context.Background(), url)
 	if err != nil {
